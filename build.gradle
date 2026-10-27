@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'es.pps'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencyLocking {
+    lockAllConfigurations()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+jar {
+    archiveFileName = 'app.jar'
+    manifest {
+        attributes 'Main-Class': 'es.pps.App'
+    }
+}
